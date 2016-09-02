@@ -37,7 +37,12 @@ if (!/^https?:\/\//.test(imgOpt.value)) {
     }
 }
 
-ImageToAscii(imgOpt.value, function(err, converted) {
+ImageToAscii(imgOpt.value, {
+    size: { width: 40 },
+    white_bg: false,
+  },
+  (err, converted) => {
     if (err) { return Logger.log(err, "error"); }
     console.log(converted);
-});
+  }
+);
